@@ -167,7 +167,8 @@ namespace SpGenerator
                                             ON tab.object_id = col.object_id
                                         LEFT JOIN sys.types AS t
                                             ON col.user_type_id = t.user_type_id
-                                            WHERE tab.name = @TABLE_NAME";
+                                            WHERE tab.name = @TABLE_NAME
+		                                    ORDER BY col.column_id";
                     var prms = new
                     {
                         TABLE_NAME = SelectedTable
@@ -192,7 +193,8 @@ namespace SpGenerator
                                             ON tab.object_id = col.object_id
                                         LEFT JOIN sys.types AS t
                                             ON col.user_type_id = t.user_type_id
-                                            WHERE tab.name = @TABLE_NAME";
+                                            WHERE tab.name = @TABLE_NAME
+		                                    ORDER BY col.column_id";
                     var prms = new
                     {
                         TABLE_NAME = SelectedTable
@@ -261,7 +263,7 @@ namespace SpGenerator
             textBoxDelete.AppendText("END");
         }
         void Writeto_textBoxUpdate()
-        {
+        { // yapýlacak
             string identifyColumn = "";
             int size;
 
@@ -303,6 +305,8 @@ namespace SpGenerator
 
                         if (i == totalColumnCount - 1)
                         {
+                            textBoxUpdate.AppendText(identifyColumn);
+                            textBoxUpdate.AppendText(Environment.NewLine);
                             break;
                         }
                         identifyColumn += ",";
@@ -316,6 +320,8 @@ namespace SpGenerator
 
                         if (i == totalColumnCount - 1)
                         {
+                            textBoxUpdate.AppendText(identifyColumn);
+                            textBoxUpdate.AppendText(Environment.NewLine);
                             break;
                         }
                         identifyColumn += ",";
@@ -329,6 +335,8 @@ namespace SpGenerator
 
                         if (i == totalColumnCount - 1)
                         {
+                            textBoxUpdate.AppendText(identifyColumn);
+                            textBoxUpdate.AppendText(Environment.NewLine);
                             break;
                         }
                         identifyColumn += ",";
@@ -342,6 +350,8 @@ namespace SpGenerator
 
                         if (i == totalColumnCount - 1)
                         {
+                            textBoxUpdate.AppendText(identifyColumn);
+                            textBoxUpdate.AppendText(Environment.NewLine);
                             break;
                         }
                         identifyColumn += ",";
@@ -355,6 +365,8 @@ namespace SpGenerator
 
                         if (i == totalColumnCount - 1)
                         {
+                            textBoxUpdate.AppendText(identifyColumn);
+                            textBoxUpdate.AppendText(Environment.NewLine);
                             break;
                         }
                         identifyColumn += ",";
@@ -368,6 +380,8 @@ namespace SpGenerator
 
                         if (i == totalColumnCount - 1)
                         {
+                            textBoxUpdate.AppendText(identifyColumn);
+                            textBoxUpdate.AppendText(Environment.NewLine);
                             break;
                         }
                         identifyColumn += ",";
@@ -380,6 +394,8 @@ namespace SpGenerator
 
                         if (i == totalColumnCount - 1)
                         {
+                            textBoxUpdate.AppendText(identifyColumn);
+                            textBoxUpdate.AppendText(Environment.NewLine);
                             break;
                         }
                         identifyColumn += ",";
@@ -392,6 +408,8 @@ namespace SpGenerator
 
                         if (i == totalColumnCount - 1)
                         {
+                            textBoxUpdate.AppendText(identifyColumn);
+                            textBoxUpdate.AppendText(Environment.NewLine);
                             break;
                         }
                         identifyColumn += ",";
@@ -404,6 +422,8 @@ namespace SpGenerator
 
                         if (i == totalColumnCount - 1)
                         {
+                            textBoxUpdate.AppendText(identifyColumn);
+                            textBoxUpdate.AppendText(Environment.NewLine);
                             break;
                         }
                         identifyColumn += ",";
@@ -490,8 +510,9 @@ namespace SpGenerator
                         identifyColumn += size / 2;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount)
+                        if (i == totalColumnCount-1)
                         {
+                            textBoxInsert.AppendText(identifyColumn);
                             break;
                         }
                         identifyColumn += ",";
@@ -503,8 +524,9 @@ namespace SpGenerator
                         identifyColumn += size;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount)
+                        if (i == totalColumnCount-1)
                         {
+                            textBoxInsert.AppendText(identifyColumn);
                             break;
                         }
                         identifyColumn += ",";
@@ -516,8 +538,9 @@ namespace SpGenerator
                         identifyColumn += size;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount)
+                        if (i == totalColumnCount-1)
                         {
+                            textBoxInsert.AppendText(identifyColumn);
                             break;
                         }
                         identifyColumn += ",";
@@ -530,8 +553,9 @@ namespace SpGenerator
                         identifyColumn += size;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount)
+                        if (i == totalColumnCount-1)
                         {
+                            textBoxInsert.AppendText(identifyColumn);
                             break;
                         }
                         identifyColumn += ",";
@@ -543,8 +567,9 @@ namespace SpGenerator
                         identifyColumn += size;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount)
+                        if (i == totalColumnCount-1)
                         {
+                            textBoxInsert.AppendText(identifyColumn);
                             break;
                         }
                         identifyColumn += ",";
@@ -554,9 +579,10 @@ namespace SpGenerator
                         identifyColumn += "(";
                         size = Convert.ToInt32(listDataTypeSize[i]);
                         identifyColumn += size / 2;
-                        if (i == totalColumnCount)
+                        if (i == totalColumnCount-1)
                         {
                             identifyColumn += ")";
+                            textBoxInsert.AppendText(identifyColumn);
                             break;
                             identifyColumn += ",";
                         }
@@ -565,9 +591,10 @@ namespace SpGenerator
                     {
                         size = Convert.ToInt32(listDataTypeSize[i]);
                         identifyColumn += size;
-                        if (i == totalColumnCount)
+                        if (i == totalColumnCount-1)
                         {
                             identifyColumn += ")";
+                            textBoxInsert.AppendText(identifyColumn);
                             break;
                             identifyColumn += ",";
                         }
@@ -576,9 +603,10 @@ namespace SpGenerator
                     {
                         size = Convert.ToInt32(listDataTypeSize[i]);
                         identifyColumn += size;
-                        if (i == totalColumnCount)
+                        if (i == totalColumnCount-1)
                         {
                             identifyColumn += ")";
+                            textBoxInsert.AppendText(identifyColumn);
                             break;
                             identifyColumn += ",";
                         }
@@ -590,6 +618,7 @@ namespace SpGenerator
                         if (i == totalColumnCount - 1)
                         {
                             identifyColumn += ")";
+                            textBoxInsert.AppendText(identifyColumn);
                             break;
                             identifyColumn += ",";
                         }
@@ -618,9 +647,9 @@ namespace SpGenerator
                 if (listColumn[i] == "ID")
                     continue;
 
-                setColumn = "[";
+                //setColumn = "[";
                 setColumn += listColumn[i];
-                setColumn += "]";
+                //setColumn += "]";
 
                 if (i == totalColumnCount - 1)
                 {
