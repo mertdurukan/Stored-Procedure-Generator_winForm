@@ -648,7 +648,7 @@ namespace SpGenerator
                     continue;
 
                 //setColumn = "[";
-                setColumn += listColumn[i];
+                setColumn = listColumn[i];
                 //setColumn += "]";
 
                 if (i == totalColumnCount - 1)
