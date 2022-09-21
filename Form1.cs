@@ -235,7 +235,7 @@ namespace SpGenerator
         void Writeto_textBoxSelectSearch()
         {
             textBoxSelectSearch.AppendText("/* select_search */" + Environment.NewLine);
-            textBoxSelectSearch.AppendText("CREATE OR ALTER PROCEDURE [dbo].sp_S_" + SelectedTable + "_BySearch" + Environment.NewLine);
+            textBoxSelectSearch.AppendText("CREATE OR ALTER PROCEDURE [dbo].[S_" + SelectedTable + "_BySearch" + "]" + Environment.NewLine);
             textBoxSelectSearch.AppendText("@ARAMA NVARCHAR(50)" + Environment.NewLine);
             textBoxSelectSearch.AppendText("AS" + Environment.NewLine);
             textBoxSelectSearch.AppendText("BEGIN" + Environment.NewLine);
@@ -245,7 +245,7 @@ namespace SpGenerator
         void Writeto_textBoxSelectId()
         {
             textBoxSelectId.AppendText("/* select_id */" + Environment.NewLine);
-            textBoxSelectId.AppendText("CREATE OR ALTER PROCEDURE [dbo].sp_S_" + SelectedTable + "_ByID" + Environment.NewLine);
+            textBoxSelectId.AppendText("CREATE OR ALTER PROCEDURE [dbo].[S_" + SelectedTable + "_ByID" + "]" + Environment.NewLine);
             textBoxSelectId.AppendText("@ID INT" + Environment.NewLine);
             textBoxSelectId.AppendText("AS" + Environment.NewLine);
             textBoxSelectId.AppendText("BEGIN" + Environment.NewLine);
@@ -255,7 +255,7 @@ namespace SpGenerator
         void Writeto_textBoxDelete()
         {
             textBoxDelete.AppendText("/* delete */" + Environment.NewLine);
-            textBoxDelete.AppendText("CREATE OR ALTER PROCEDURE [dbo].sp_D_" + SelectedTable + Environment.NewLine);
+            textBoxDelete.AppendText("CREATE OR ALTER PROCEDURE [dbo].[D_" + SelectedTable + "]" + Environment.NewLine);
             textBoxDelete.AppendText("@ID INT" + Environment.NewLine);
             textBoxDelete.AppendText("AS" + Environment.NewLine);
             textBoxDelete.AppendText("BEGIN" + Environment.NewLine);
@@ -268,7 +268,7 @@ namespace SpGenerator
             int size;
 
             textBoxUpdate.AppendText("/* update */" + Environment.NewLine);
-            textBoxUpdate.AppendText("CREATE OR ALTER PROCEDURE [dbo].sp_U_" + SelectedTable + Environment.NewLine);
+            textBoxUpdate.AppendText("CREATE OR ALTER PROCEDURE [dbo].[U_" + SelectedTable + "]" + Environment.NewLine);
             textBoxUpdate.AppendText("@ID INT," + Environment.NewLine);
 
             for (int i = 0; i < totalColumnCount; i++)
@@ -477,7 +477,7 @@ namespace SpGenerator
             int size;
 
             textBoxInsert.AppendText("/* insert */" + Environment.NewLine);
-            textBoxInsert.AppendText("CREATE OR ALTER PROCEDURE [dbo].[sp_I_" + SelectedTable + "]" + Environment.NewLine);
+            textBoxInsert.AppendText("CREATE OR ALTER PROCEDURE [dbo].[I_" + SelectedTable + "]" + Environment.NewLine);
             for (int i = 0; i < totalColumnCount; i++)
             {
                 if (listColumn[i] == "ID")
@@ -510,7 +510,7 @@ namespace SpGenerator
                         identifyColumn += size / 2;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount-1)
+                        if (i == totalColumnCount - 1)
                         {
                             textBoxInsert.AppendText(identifyColumn);
                             break;
@@ -524,7 +524,7 @@ namespace SpGenerator
                         identifyColumn += size;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount-1)
+                        if (i == totalColumnCount - 1)
                         {
                             textBoxInsert.AppendText(identifyColumn);
                             break;
@@ -538,7 +538,7 @@ namespace SpGenerator
                         identifyColumn += size;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount-1)
+                        if (i == totalColumnCount - 1)
                         {
                             textBoxInsert.AppendText(identifyColumn);
                             break;
@@ -553,7 +553,7 @@ namespace SpGenerator
                         identifyColumn += size;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount-1)
+                        if (i == totalColumnCount - 1)
                         {
                             textBoxInsert.AppendText(identifyColumn);
                             break;
@@ -567,7 +567,7 @@ namespace SpGenerator
                         identifyColumn += size;
                         identifyColumn += ")";
 
-                        if (i == totalColumnCount-1)
+                        if (i == totalColumnCount - 1)
                         {
                             textBoxInsert.AppendText(identifyColumn);
                             break;
@@ -579,7 +579,7 @@ namespace SpGenerator
                         identifyColumn += "(";
                         size = Convert.ToInt32(listDataTypeSize[i]);
                         identifyColumn += size / 2;
-                        if (i == totalColumnCount-1)
+                        if (i == totalColumnCount - 1)
                         {
                             identifyColumn += ")";
                             textBoxInsert.AppendText(identifyColumn);
@@ -591,7 +591,7 @@ namespace SpGenerator
                     {
                         size = Convert.ToInt32(listDataTypeSize[i]);
                         identifyColumn += size;
-                        if (i == totalColumnCount-1)
+                        if (i == totalColumnCount - 1)
                         {
                             identifyColumn += ")";
                             textBoxInsert.AppendText(identifyColumn);
@@ -603,7 +603,7 @@ namespace SpGenerator
                     {
                         size = Convert.ToInt32(listDataTypeSize[i]);
                         identifyColumn += size;
-                        if (i == totalColumnCount-1)
+                        if (i == totalColumnCount - 1)
                         {
                             identifyColumn += ")";
                             textBoxInsert.AppendText(identifyColumn);
@@ -638,7 +638,7 @@ namespace SpGenerator
             }
             textBoxInsert.AppendText(Environment.NewLine + "AS" + Environment.NewLine);
             textBoxInsert.AppendText("BEGIN" + Environment.NewLine);
-            textBoxInsert.AppendText("INSERT INTO [dbo]." + SelectedTable);
+            textBoxInsert.AppendText("INSERT INTO [dbo].[" + SelectedTable + "]");
             textBoxInsert.AppendText("(" + Environment.NewLine);
 
             string setColumn = "";
@@ -687,11 +687,11 @@ namespace SpGenerator
         {
             textBoxExecuteSp.Clear();
 
-            string exec_selectSearch = "EXEC [dbo].[sp_S_" + SelectedTable + "_BySearch" + "]" + Environment.NewLine + "@ARAMA = ''" + Environment.NewLine + "GO";
-            string exec_selectId = "EXEC [dbo].[sp_S_" + SelectedTable + "_ById" + "]" + Environment.NewLine + "@ID = ''" + Environment.NewLine + "GO";
-            string exec_delete = "EXEC [dbo].[sp_D_" + SelectedTable + "]" + Environment.NewLine + "@ID = ''" + Environment.NewLine + "GO";
-            string exec_update = "EXEC [dbo].[sp_U_" + SelectedTable + "]" + Environment.NewLine + "@ID =''," + Environment.NewLine;
-            string exec_insert = "EXEC [dbo].[sp_I_" + SelectedTable + "]" + Environment.NewLine;
+            string exec_selectSearch = "EXEC [dbo].[S_" + SelectedTable + "_BySearch" + "]" + Environment.NewLine + "@ARAMA = ''" + Environment.NewLine + "GO";
+            string exec_selectId = "EXEC [dbo].[S_" + SelectedTable + "_ById" + "]" + Environment.NewLine + "@ID = ''" + Environment.NewLine + "GO";
+            string exec_delete = "EXEC [dbo].[D_" + SelectedTable + "]" + Environment.NewLine + "@ID = ''" + Environment.NewLine + "GO";
+            string exec_update = "EXEC [dbo].[U_" + SelectedTable + "]" + Environment.NewLine + "@ID =''," + Environment.NewLine;
+            string exec_insert = "EXEC [dbo].[I_" + SelectedTable + "]" + Environment.NewLine;
 
             //  SelectSearch
             textBoxExecuteSp.AppendText(exec_selectSearch + Environment.NewLine + Environment.NewLine);
@@ -782,7 +782,7 @@ namespace SpGenerator
 
                 filePath += "\\" + "Exec" + SelectedTable + ".sql";
 
-                fileText += "USE [" + SelectedDb + "]" + Environment.NewLine;
+                fileText += "USE [" + SelectedDb + Environment.NewLine;
 
                 fileText += textBoxExecuteSp.Text;
 

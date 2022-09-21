@@ -212,7 +212,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(615, 313);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "sp_Select \'\'";
+            this.tabPage1.Text = "Select \'\'";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // textBoxSelectSearch
@@ -231,7 +231,7 @@
             this.tabSelectId.Padding = new System.Windows.Forms.Padding(3);
             this.tabSelectId.Size = new System.Drawing.Size(615, 313);
             this.tabSelectId.TabIndex = 1;
-            this.tabSelectId.Text = "sp_Select_Id";
+            this.tabSelectId.Text = "Select_Id";
             this.tabSelectId.UseVisualStyleBackColor = true;
             // 
             // textBoxSelectId
@@ -250,7 +250,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(615, 313);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "sp_Delete";
+            this.tabPage3.Text = "Delete";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // textBoxDelete
@@ -269,7 +269,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(615, 313);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "sp_Update";
+            this.tabPage4.Text = "Update";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // textBoxUpdate
@@ -288,7 +288,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(615, 313);
             this.tabPage2.TabIndex = 4;
-            this.tabPage2.Text = "sp_Insert";
+            this.tabPage2.Text = "Insert";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // textBoxInsert
